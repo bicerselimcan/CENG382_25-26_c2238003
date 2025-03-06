@@ -1,0 +1,83 @@
+<!-- Kaynakça: Bu bölümü oluştururken yapay zeka desteğiyle temel HTML yapısını oluşturdum.
+Ayrıca CSS dosyasını bağlamak için MDN Web Docs ve W3Schools üzerinden bağlantı eklemeyi öğrendim. -->
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Themed Main Page</title>
+    <link rel="stylesheet" href="styles.css"> <!-- CSS dosyası bağlandı -->
+</head>
+<body>
+<div class="container">
+    <h1>Welcome!</h1>
+    <p>Click vinyl to login.</p>
+</div>
+
+<!-- Pikap Gövdesi -->
+<div class="turntable">
+    <!-- Plak -->
+    <div class="vinyl">
+        <div class="vinyl-center">
+            <div class="vinyl-core"></div>
+            <!-- Dairesel Yazı -->
+            <div class="vinyl-text">
+                <svg viewBox="0 0 100 100">
+                    <path id="curve" d="M 30,50 A 20,20 0 1,1 70,50 A 20,20 0 1,1 30,50" />
+                    <text>
+                        <textPath xlink:href="#curve">
+                            CLICK HERE!
+                        </textPath>
+                    </text>
+                </svg>
+            </div>
+        </div>
+        <!-- Tıklama Alanını Plağın Üzerine Yerleştirdim -->
+        <a href="#login-screen" class="open-login"></a>
+    </div>
+
+    <!-- Pikap İğnesi (Konumu düzeltilmiş) -->
+    <div class="tonearm">
+        <div class="needle"></div>
+    </div>
+
+    <!-- Pikap Üzerindeki Tuşlar (Konumu düzeltilmiş) -->
+    <div class="buttons">
+        <div class="button"></div>
+        <div class="button"></div>
+    </div>
+</div>
+
+<!-- Volume Meter -->
+<div class="equalizer">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+</div>
+
+<!-- Giriş Ekranı (Konumlandırma düzeltildi) -->
+<div id="login-screen" class="login-container">
+    <div class="login-box">
+        <a href="#" class="close-button">&times;</a> <!-- Kapatma butonu -->
+        <h2>Giriş Yap</h2>
+        <form>
+            <div class="input-group">
+                <label for="username">Kullanıcı Adı</label>
+                <input type="text" id="username" placeholder="Kullanıcı adınızı girin">
+            </div>
+
+            <div class="input-group">
+                <label for="password">Şifre</label>
+                <input type="password" id="password" placeholder="Şifrenizi girin">
+            </div>
+
+            <button type="submit" class="login-button">Giriş</button>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>
