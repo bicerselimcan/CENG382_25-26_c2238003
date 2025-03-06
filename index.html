@@ -33,23 +33,23 @@ Ayrıca CSS dosyasını bağlamak için MDN Web Docs ve W3Schools üzerinden ba�
                 </svg>
             </div>
         </div>
-        <!-- Tıklama Alanını Plağın Üzerine Yerleştirdim -->
+        <!-- Tıklama alanını plağın üzerine yerleştirdim, bu konuda GPT'den yardım aldım -->
         <a href="#login-screen" class="open-login"></a>
     </div>
 
-    <!-- Pikap İğnesi (Konumu düzeltilmiş) -->
+    <!-- Pikap İğnesi -->
     <div class="tonearm">
         <div class="needle"></div>
     </div>
 
-    <!-- Pikap Üzerindeki Tuşlar (Konumu düzeltilmiş) -->
+    <!-- Pikap Üzerindeki Tuşlar -->
     <div class="buttons">
         <div class="button"></div>
         <div class="button"></div>
     </div>
 </div>
 
-<!-- Volume Meter -->
+<!-- Kaynakça: Volume Meter'ı ilk yaptığımda pikapa bağımlıydı, pikaptan bağımsız hale getirmek için GPT'den yardım aldım. -->
 <div class="equalizer">
     <div class="bar"></div>
     <div class="bar"></div>
@@ -58,23 +58,24 @@ Ayrıca CSS dosyasını bağlamak için MDN Web Docs ve W3Schools üzerinden ba�
     <div class="bar"></div>
 </div>
 
-<!-- Giriş Ekranı (Konumlandırma düzeltildi) -->
+<!-- Kaynakça: Login ekranını açılır kapanır yapmak için GPT'den destek aldım. -->
+<!-- Login Ekranı -->
 <div id="login-screen" class="login-container">
     <div class="login-box">
         <a href="#" class="close-button">&times;</a> <!-- Kapatma butonu -->
-        <h2>Giriş Yap</h2>
+        <h2>Vinyl Store Login</h2>
         <form>
             <div class="input-group">
-                <label for="username">Kullanıcı Adı</label>
-                <input type="text" id="username" placeholder="Kullanıcı adınızı girin">
+                <label for="username">Username</label>
+                <input type="text" id="username" placeholder="Enter your username">
             </div>
 
             <div class="input-group">
-                <label for="password">Şifre</label>
-                <input type="password" id="password" placeholder="Şifrenizi girin">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter your password">
             </div>
 
-            <button type="submit" class="login-button">Giriş</button>
+            <button type="submit" class="login-button">Login</button>
         </form>
     </div>
 </div>

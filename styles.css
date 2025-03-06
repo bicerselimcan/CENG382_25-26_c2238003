@@ -5,18 +5,18 @@ body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background: url('https://images.unsplash.com/photo-1539375665275-f9de415ef9ac?q=80&w=3278&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center/cover;
+    background: url('https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExY3RhMDB4NWMwYTlram1uOW5kbGxpZDJmNWpnd2h1bjJ6aWtveWd3YyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/62ZhOvaZAZZm0/giphy.gif') no-repeat center center/cover;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     height: 100vh;
-    color: white;
+    color: #000000;
     text-align: center;
 }
 
 .container {
-    background: rgba(0, 0, 0, 0.6);
+    background: radial-gradient(circle, red, orange);
     padding: 20px;
     border-radius: 10px;
     margin-bottom: 20px;
@@ -48,7 +48,7 @@ body {
     animation: spin 4s linear infinite;
 }
 
-/* Plak Ortası */
+/* Plağın Ortası, Label Kısmı */
 .vinyl-center {
     width: 60px;
     height: 60px;
@@ -81,7 +81,8 @@ body {
     background: rgba(255, 255, 255, 0);
 }
 
-/* Dairesel Yazıyı Döndürme */
+/* Kaynakça: Dairesel yazıyı oluşturmak ve döndürebilmek için GPT'den yardım aldım. */
+/* Dairesel Yazıyı Döndürme Animasyonu */
 .vinyl-text {
     position: absolute;
     width: 70px;
@@ -123,7 +124,7 @@ text {
     position: absolute;
     top: 90px;
     right: 50px;
-    transform: rotate(50deg);
+    transform: rotate(12deg);
     transform-origin: right center;
     border-radius: 5px;
 }
@@ -151,7 +152,7 @@ text {
 .button {
     width: 15px;
     height: 15px;
-    background: #666;
+    background: rgba(255, 255, 255, 0.5);
     border-radius: 50%;
     box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
 }
@@ -159,7 +160,7 @@ text {
 /* Kaynakça: Volume Meter'ı sayfanın en altına taşımak için position: fixed ve flexbox merkezleme yöntemlerini kullandım, hata yaşadığım yerde GPT'den yardım aldım. */
 .equalizer {
     position: fixed; /* Sayfanın en altında sabit kalması için */
-    bottom: 10px; /* Sayfanın altına yerleştirmek için */
+    bottom: 0px; /* Sayfanın altına yerleştirmek için */
     left: 50%; /* Ortaya hizalamak için */
     transform: translateX(-50%); /* Tam ortalanması için */
     display: flex;
@@ -217,13 +218,13 @@ text {
 }
 
 .login-box {
-    background: #222;
+    background: radial-gradient(circle, red, orange);
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
     width: 300px;
     text-align: center;
-    color: white;
+    color: #000000;
 }
 
 .close-button {
