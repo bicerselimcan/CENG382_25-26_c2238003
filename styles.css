@@ -4,7 +4,7 @@ Ek olarak, sayfanın merkezlenmesi için flexbox kullandım, GPT'den yardım ald
 body {
     margin: 0;
     padding: 0;
-    font-family: "Bebas Neue", sans-serif;
+    font-family: "Iceberg", sans-serif;
     background: url('https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExY3RhMDB4NWMwYTlram1uOW5kbGxpZDJmNWpnd2h1bjJ6aWtveWd3YyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/62ZhOvaZAZZm0/giphy.gif') no-repeat center center/cover;
     display: flex;
     justify-content: center;
@@ -160,7 +160,7 @@ text {
 /* Kaynakça: Volume Meter'ı sayfanın en altına taşımak için position: fixed ve flexbox merkezleme yöntemlerini kullandım, hata yaşadığım yerde GPT'den yardım aldım. */
 .equalizer {
     position: fixed; /* Sayfanın en altında sabit kalması için */
-    bottom: 0px; /* Sayfanın altına yerleştirmek için */
+    bottom: 0; /* Sayfanın altına yerleştirmek için */
     left: 50%; /* Ortaya hizalamak için */
     transform: translateX(-50%); /* Tam ortalanması için */
     display: flex;
@@ -222,7 +222,6 @@ text {
     padding: 25px;
     border-radius: 10px;
     width: 300px;
-    length: 300px;
     text-align: center;
     color: #ffffff;
 }
@@ -238,7 +237,7 @@ text {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
     width: 100px;
-    font-family: "Bebas Neue", sans-serif;
+    font-family: "Iceberg", sans-serif;
     text-align: center;
     color: #000000;
 }
@@ -252,22 +251,22 @@ text {
     color: white;
 }
 
-.bebas-neue-regular {
-    font-family: "Bebas Neue", sans-serif;
+.iceberg-regular {
+    font-family: "Iceberg", sans-serif;
     font-weight: 400;
     font-style: normal;
 }
 
 /* Placeholder'da, başta görünen yazının fontunu değiştirmek için */
 input::placeholder {
-    font-family: 'Bebas Neue', sans-serif;
+    font-family: "Iceberg", sans-serif;
     font-size: 15px;
     color: #bbb;
 }
 
 /* Input olarak girilen yazının fontunu değiştirmek için */
 input {
-    font-family: 'Bebas Neue', sans-serif;
+    font-family: "Iceberg", sans-serif;
     font-size: 18px;
     color: black;
 }
