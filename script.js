@@ -1,4 +1,4 @@
-    // Canlı Saat Kısmı
+ // Canlı Saat Kısmı
     function updateClock() {
         const clockElement = document.getElementById("live-clock");
         const now = new Date();
@@ -36,6 +36,10 @@
     // Kullanıcı giriş bilgilerini saklamak için bir array oluşturdum
     const logData = [];
 
+    // Varsayılan giriş bilgileri
+    const defaultUsername = "admin";
+    const defaultPassword = "admin";
+
     // Login butonuna tıklanınca çalışacak fonksiyon
     function handleLogin(event) {
         event.preventDefault(); // Sayfanın yenilenmesini engellemek için
@@ -55,15 +59,19 @@
 
         // Konsola tüm girişleri yazdırmak için
         console.log("All Login Attempts:", logData);
-    }
 
-    // Sayfa yüklendiğinde event listener eklemek için
-    document.addEventListener("DOMContentLoaded", function () {
-        const loginButton = document.getElementById("login-btn"); // Login butonunu seç
-        if (loginButton) {
-            loginButton.addEventListener("click", handleLogin);
+        // Labwork 3 - Bu şekilde mi olması gerekiyor sor!
+
+        // Giriş bilgileri doğru olduğu zaman yönlendirme yapması için
+        if (username === defaultUsername && password === defaultPassword) {
+            console.log("Login successful! Redirecting to table.html...");
+            window.location.href = "table.html"; // table.html sayfasına yönlendirmek için
+        } else {
+            console.log("Incorrect username or password.");
+            alert("Invalid credentials! Please try again.");
         }
-    });
+
+    }
 
     // H'ye basınca login ekranını gizleme ve göstermek için
     document.addEventListener("keydown", function (event) {
@@ -82,5 +90,15 @@
             }
         }
     });
+
+    // Sayfa yüklendiğinde tüm login butonlarına event listener eklemek için, önceki versiyonda tek bir buton içindi, bu sefer tüm butonlarda çalışabilmesi için değiştirdik.
+    document.addEventListener("DOMContentLoaded", function () {
+        const loginButtons = document.querySelectorAll(".login-button"); // Tüm login butonlarını seçmek için
+        loginButtons.forEach(button => {
+            button.addEventListener("click", handleLogin); // Hepsine event listener eklemek için
+        });
+    });
+
+
 
 

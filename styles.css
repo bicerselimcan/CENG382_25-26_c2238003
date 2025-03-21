@@ -271,4 +271,52 @@ input {
     color: black;
 }
 
-/* NOT: Fontu değiştireceğim, login ekranında lowercase ve uppercase önemli. */
+/* Tablo ve Form Stilleri */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 300px;
+    margin: 20px auto;
+}
+
+input, textarea, button {
+    font-family: "Iceberg", sans-serif;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    background: radial-gradient(circle, red, orange);
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: radial-gradient(circle, orange, red);
+}
+
+/* Tablo Stili */
+table {
+    width: 80%;
+    margin: auto;
+    border-collapse: collapse;
+    background: white;
+}
+
+th, td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+th {
+    background: #f4a261;
+    color: white;
+}
+
+tr:hover {
+    background: #e9c46a;
+}
