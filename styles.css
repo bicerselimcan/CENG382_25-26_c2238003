@@ -320,3 +320,41 @@ th {
 tr:hover {
     background: #e9c46a;
 }
+
+.edit-btn, .delete-btn {
+    padding: 5px 10px;
+    margin: 3px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+.edit-btn {
+    background-color: #ffc107;
+    color: black;
+}
+
+.delete-btn {
+    background-color: #dc3545;
+    color: white;
+}
+
+.edit-btn:hover {
+    background-color: #e0a800;
+}
+
+.delete-btn:hover {
+    background-color: #c82333;
+}
+
+/* Action sütununun arka plan rengini değiştirmek için */
+td:last-child {
+    background-color: rgba(255, 255, 255, 0.5);
+    text-align: center;
+}
+
+/* Butonların olduğu kolonu vurgulamak için */
+td:last-child:hover {
+    background-color: rgba(122, 122, 122, 0.8);
+}

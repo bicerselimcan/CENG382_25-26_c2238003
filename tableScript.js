@@ -17,6 +17,36 @@ form.addEventListener("submit", function (event) {
             <td>${description}</td>
         `;
 
+
+// Edit ve Delete fonksiyonu için GPT'den yardım aldım.
+
+    // Edit butonu oluşturmak için
+    const editButton = document.createElement("button");
+    editButton.textContent = "Edit";
+    editButton.classList.add("edit-btn");
+    editButton.addEventListener("click", function () {
+        document.getElementById("class-name").value = className;
+        document.getElementById("num-people").value = numPeople;
+        document.getElementById("description").value = description;
+
+        // Satırı sil ve tekrar eklenmesini beklemek için
+        newRow.remove();
+    });
+
+// Delete butonu oluşturmak için
+    const deleteButton = document.createElement("button");
+    deleteButton.textContent = "Delete";
+    deleteButton.classList.add("delete-btn");
+    deleteButton.addEventListener("click", function () {
+        newRow.remove();
+    });
+
+// Butonları bir div içine alıp satıra eklemek için
+    const actionCell = document.createElement("td");
+    actionCell.appendChild(editButton);
+    actionCell.appendChild(deleteButton);
+    newRow.appendChild(actionCell);
+
     // Satıra tıklamak için
     newRow.addEventListener("click", function () {
         console.log(`Clicked Row: ${className}, ${numPeople}, ${description}`);
