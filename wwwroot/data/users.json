@@ -1,0 +1,16 @@
+[
+    {
+      "Username": "admin",
+      "Password": "1234",
+      "Role": "admin",
+      "IsActive": true,
+      "CreatedAt": "2025-04-30T20:01:00"
+    },
+    {
+      "Username": "selimcan",
+      "Password": "selimcan",
+      "Role": "moderator",
+      "IsActive": true,
+      "CreatedAt": "2025-04-30T20:01:00"
+    }
+  ]

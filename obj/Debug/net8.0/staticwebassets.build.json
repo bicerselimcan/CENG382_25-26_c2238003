@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "fgLJRzz/JSq1qaYc3UJJUk7w9CryE6B24KEu7CXAzns=",
+  "Hash": "8r6woYv93grmKSykyc7nffsfSaFebsYfRauph+FNNCM=",
   "Source": "DotNetWeek5App",
   "BasePath": "_content/DotNetWeek5App",
   "Mode": "Default",
@@ -72,6 +72,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/css/site.css"
+    },
+    {
+      "Identity": "/Users/selimcanbicer/CENG382_25-26_c2238003/CENG382_25-26_c2238003/wwwroot/data/users.json",
+      "SourceId": "DotNetWeek5App",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/selimcanbicer/CENG382_25-26_c2238003/CENG382_25-26_c2238003/wwwroot/",
+      "BasePath": "_content/DotNetWeek5App",
+      "RelativePath": "data/users.json",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/data/users.json"
     },
     {
       "Identity": "/Users/selimcanbicer/CENG382_25-26_c2238003/CENG382_25-26_c2238003/wwwroot/favicon.ico",

@@ -39,6 +39,22 @@ namespace DotNetWeek5App.Pages
      
         public void OnGet()
         {
+            // Oturum yoksa otomatik olarak giriş sayfasına yönlendirmek için
+            var username = HttpContext.Session.GetString("username");
+            if (string.IsNullOrEmpty(username))
+            {
+                Response.Redirect("/Login");
+                return;
+            }
+
+            if (HttpContext.Session.GetString("username") != Request.Cookies["username"] ||
+            HttpContext.Session.GetString("token") != Request.Cookies["token"] ||
+            HttpContext.Session.GetString("session_id") != Request.Cookies["session_id"])
+        {
+            TempData["Error"] = "Unauthorized access.";
+            Response.Redirect("/Login");
+        }
+
             if (Request.Query.ContainsKey("Page") && int.TryParse(Request.Query["Page"], out var parsedPage))
             {
                 Page = parsedPage;
