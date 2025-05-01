@@ -52,6 +52,35 @@
                 </div>
             </form>
 
+            <!-- EXPORT SELECTIONS -->
+            <form method="post">
+                <div class="mb-2">
+                    <label><strong>Select columns to export:</strong></label><br />
+
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="SelectedColumns" value="ClassName" checked id="col1" />
+                        <label class="form-check-label" for="col1">Class Name</label>
+                    </div>
+
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" name="SelectedColumns" value="StudentCount" checked id="col2" />
+                            <label class="form-check-label" for="col2">Student Count</label>
+                        </div>
+
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="checkbox" name="SelectedColumns" value="Description" checked id="col3" />
+                            <label class="form-check-label" for="col3">Description</label>
+                        </div>
+                    </div>
+
+                    <input type="hidden" name="Filter" value="@Model.Filter" />
+
+                    <div class="mb-3">
+                        <button type="submit" asp-page-handler="ExportUnfiltered" class="btn btn-success btn-sm me-2">Export All (Unfiltered)</button>
+                        <button type="submit" asp-page-handler="ExportFiltered" class="btn btn-info btn-sm">Export Filtered</button>
+                    </div>
+                </form>
+
             <!-- TABLE -->
             <table class="table table-bordered table-striped">
                 <thead>
@@ -104,6 +133,53 @@
     </div>
 </div>
 
+<style>
+    .export-option {
+        padding: 5px 10px;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+        display: inline-block;
+        cursor: pointer;
+    }
+
+    .export-option input:checked + span,
+    .export-option input:checked {
+        background-color: #98a9bd;
+        font-weight: bold;
+    }
+</style>
+
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const checkboxes = document.querySelectorAll('input[name="SelectedColumns"]');
+
+            checkboxes.forEach(cb => {
+                toggleHighlight(cb); // sayfa yüklenince de uygula
+
+                cb.addEventListener("change", function () {
+                    toggleHighlight(this);
+                });
+            });
+
+            function toggleHighlight(checkbox) {
+                if (checkbox.checked) {
+                    checkbox.closest(".form-check").classList.add("highlighted");
+                } else {
+                    checkbox.closest(".form-check").classList.remove("highlighted");
+                }
+            }
+        });
+    </script>
+
+    <style>
+        .form-check.highlighted {
+            background-color: #dbeafe;
+            border-radius: 6px;
+            padding: 6px 10px;
+            transition: background-color 0.3s ease;
+        }
+    </style>
 }

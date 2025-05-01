@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/selimcanbicer/CENG382_25-26_c2238003/DotNetWeek5App/DotNetWeek5App.csproj",
+      "projectUniqueName": "/Users/selimcanbicer/CENG382_25-26_c2238003/CENG382_25-26_c2238003/DotNetWeek5App.csproj",
       "projectName": "DotNetWeek5App",
-      "projectPath": "/Users/selimcanbicer/CENG382_25-26_c2238003/DotNetWeek5App/DotNetWeek5App.csproj",
+      "projectPath": "/Users/selimcanbicer/CENG382_25-26_c2238003/CENG382_25-26_c2238003/DotNetWeek5App.csproj",
       "packagesPath": "/Users/selimcanbicer/.nuget/packages/",
-      "outputPath": "/Users/selimcanbicer/CENG382_25-26_c2238003/DotNetWeek5App/obj/",
+      "outputPath": "/Users/selimcanbicer/CENG382_25-26_c2238003/CENG382_25-26_c2238003/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/selimcanbicer/.nuget/NuGet/NuGet.Config"

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DotNetWeek5App")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b6f0e84d8803b3ebe7a7161c80597a3ab80aff73")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+60ee1e4ba247fe1fd7925cb518e1255d208f3b71")]
 [assembly: System.Reflection.AssemblyProductAttribute("DotNetWeek5App")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DotNetWeek5App")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using DotNetWeek5App.Utilities;
 using DotNetWeek5App.Models;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,18 +36,18 @@ namespace DotNetWeek5App.Pages
 // and allowed proper pagination with filtering to function as expected.
 
 // I got help from various sources that I can't remember but specially GPT.
+     
         public void OnGet()
         {
-            // Razor Pages bug çözümü: query string'i elle oku
-            if (Request.Query.ContainsKey("Page"))
+            if (Request.Query.ContainsKey("Page") && int.TryParse(Request.Query["Page"], out var parsedPage))
             {
-                int.TryParse(Request.Query["Page"], out int p);
-                Page = p;
+                Page = parsedPage;
             }
+
             if (Request.Query.ContainsKey("Filter"))
-            {
                 Filter = Request.Query["Filter"];
-            }
+
+            var trimmedFilter = Filter?.Trim(); // NULL CHECK burada yapılır
 
             if (!_classList.Any())
             {
@@ -64,9 +65,9 @@ namespace DotNetWeek5App.Pages
 
             var query = _classList.AsQueryable();
 
-            if (!string.IsNullOrWhiteSpace(Filter))
+            if (!string.IsNullOrWhiteSpace(trimmedFilter))
             {
-                query = query.Where(x => x.ClassName.Contains(Filter, System.StringComparison.OrdinalIgnoreCase));
+                query = query.Where(x => x.ClassName.Trim().Equals(trimmedFilter, System.StringComparison.OrdinalIgnoreCase));
             }
 
             int totalItems = query.Count();
@@ -124,6 +125,30 @@ namespace DotNetWeek5App.Pages
                 item.Description = NewClass.Description;
             }
             return RedirectToPage("./Index", new { Page, Filter });
+        }
+
+        [BindProperty]
+        public List<string> SelectedColumns { get; set; } = new List<string>();
+
+        public IActionResult OnPostExportUnfiltered()
+        {
+            var json = Utils.Instance.ExportToJson(_classList, SelectedColumns);
+            System.IO.File.WriteAllText("wwwroot/unfiltered_export.json", json);
+            return File(System.IO.File.ReadAllBytes("wwwroot/unfiltered_export.json"), "application/json", "unfiltered_export.json");
+        }
+
+        public IActionResult OnPostExportFiltered()
+        {
+            string postedFilter = Request.Form["Filter"];
+            string trimmedFilter = postedFilter?.Trim();
+
+            var filtered = string.IsNullOrEmpty(trimmedFilter)
+                ? _classList
+                : _classList.Where(x => x.ClassName.Trim().Equals(trimmedFilter, StringComparison.OrdinalIgnoreCase)).ToList();
+
+            var json = Utils.Instance.ExportToJson(filtered, SelectedColumns);
+            System.IO.File.WriteAllText("wwwroot/filtered_export.json", json);
+            return File(System.IO.File.ReadAllBytes("wwwroot/filtered_export.json"), "application/json", "filtered_export.json");
         }
     }
 }
