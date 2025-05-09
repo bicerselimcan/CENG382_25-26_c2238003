@@ -1,0 +1,31 @@
+@page "{id:int}"
+@model DotNetWeek5App.Pages.Classes.DeleteModel
+@{
+    ViewData["Title"] = "Delete Class";
+}
+
+<h2>Delete Class</h2>
+
+<div class="alert alert-warning">
+    Are you sure you want to delete the following class?
+</div>
+
+<dl class="row">
+    <dt class="col-sm-2">Name</dt>
+    <dd class="col-sm-10">@Model.ClassToDelete.Name</dd>
+
+    <dt class="col-sm-2">Person Count</dt>
+    <dd class="col-sm-10">@Model.ClassToDelete.PersonCount</dd>
+
+    <dt class="col-sm-2">Description</dt>
+    <dd class="col-sm-10">@Model.ClassToDelete.Description</dd>
+
+    <dt class="col-sm-2">Is Active</dt>
+    <dd class="col-sm-10">@Model.ClassToDelete.IsActive</dd>
+</dl>
+
+<form method="post">
+    <input type="hidden" asp-for="ClassToDelete.Id" />
+    <button type="submit" class="btn btn-danger">Yes, Delete</button>
+    <a asp-page="Index" class="btn btn-secondary ms-2">Cancel</a>
+</form>

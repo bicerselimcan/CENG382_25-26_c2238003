@@ -1,0 +1,36 @@
+@page "{id:int}"
+@model DotNetWeek5App.Pages.Classes.EditModel
+@{
+    ViewData["Title"] = "Edit Class";
+}
+
+<h2>Edit Class</h2>
+
+<form method="post">
+    <input type="hidden" asp-for="EditClass.Id" />
+    
+    <div class="mb-3">
+        <label class="form-label">Name</label>
+        <input asp-for="EditClass.Name" class="form-control" />
+        <span asp-validation-for="EditClass.Name" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Person Count</label>
+        <input asp-for="EditClass.PersonCount" class="form-control" />
+        <span asp-validation-for="EditClass.PersonCount" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Description</label>
+        <textarea asp-for="EditClass.Description" class="form-control"></textarea>
+    </div>
+
+    <div class="form-check mb-3">
+        <input asp-for="EditClass.IsActive" class="form-check-input" />
+        <label class="form-check-label">Is Active</label>
+    </div>
+
+    <button type="submit" class="btn btn-success">Save</button>
+    <a asp-page="./Index" class="btn btn-secondary ms-2">Cancel</a>
+</form>

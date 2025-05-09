@@ -1,51 +1,52 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using DotNetWeek5App.Models;
-using System.Text.Json;
+using DotNetWeek5App.Models.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace DotNetWeek5App.Pages
 {
     public class LoginModel : PageModel
     {
+        private readonly SchoolDbContext _context;
+
+        public LoginModel(SchoolDbContext context)
+        {
+            _context = context;
+        }
+
         [BindProperty] public string Username { get; set; }
         [BindProperty] public string Password { get; set; }
-        public string ErrorMessage { get; set; }
+        [BindProperty] public string ErrorMessage { get; set; }
 
-        public IActionResult OnPost()
+        public async Task<IActionResult> OnPostAsync()
         {
-            string jsonPath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "data", "users.json");
-            var users = JsonSerializer.Deserialize<List<User>>(System.IO.File.ReadAllText(jsonPath));
-
-            var user = users.FirstOrDefault(u => u.Username == Username && u.Password == Password && u.IsActive);
+            var user = await _context.Users.FirstOrDefaultAsync(u =>
+                u.Username == Username && u.Password == Password && u.IsActive);
 
             if (user == null)
             {
-                ErrorMessage = "Username or password is incorrect.";
+                ErrorMessage = "Invalid credentials.";
                 return Page();
             }
 
-            // Token oluşturmak için
             var token = Guid.NewGuid().ToString();
-            var sessionId = HttpContext.Session.Id;
-
-            // Session'da tutmak için
             HttpContext.Session.SetString("username", Username);
             HttpContext.Session.SetString("token", token);
-            HttpContext.Session.SetString("session_id", sessionId);
+            HttpContext.Session.SetString("session_id", HttpContext.Session.Id);
 
-            // Cookies'de tutmak için
-            var options = new CookieOptions
+            var cookieOptions = new CookieOptions
             {
-                Expires = DateTime.Now.AddMinutes(30),
+                Expires = DateTimeOffset.Now.AddMinutes(30),
                 HttpOnly = true,
                 Secure = true,
                 SameSite = SameSiteMode.Strict
             };
-            Response.Cookies.Append("username", Username, options);
-            Response.Cookies.Append("token", token, options);
-            Response.Cookies.Append("session_id", sessionId, options);
 
-            return Redirect("/Index"); // Ana tabloya yönlendirmesi için
+            Response.Cookies.Append("username", Username, cookieOptions);
+            Response.Cookies.Append("token", token, cookieOptions);
+            Response.Cookies.Append("session_id", HttpContext.Session.Id, cookieOptions);
+
+            return RedirectToPage("/Index");
         }
     }
 }

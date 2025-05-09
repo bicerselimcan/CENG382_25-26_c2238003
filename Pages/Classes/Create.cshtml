@@ -1,0 +1,31 @@
+@page
+@model DotNetWeek5App.Pages.Classes.CreateModel
+@inject Microsoft.Extensions.Logging.ILogger<CreateModel> Logger
+
+@{
+    ViewData["Title"] = "Create Class";
+}
+
+<h2>Create New Class</h2>
+
+<form method="post">
+    <div class="mb-3">
+        <label class="form-label">Name</label>
+        <input asp-for="NewClass.Name" class="form-control" />
+        <span asp-validation-for="NewClass.Name" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Person Count</label>
+        <input asp-for="NewClass.PersonCount" class="form-control" />
+        <span asp-validation-for="NewClass.PersonCount" class="text-danger"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Description</label>
+        <textarea asp-for="NewClass.Description" class="form-control"></textarea>
+    </div>
+    <div class="form-check mb-3">
+        <input asp-for="NewClass.IsActive" class="form-check-input" />
+        <label class="form-check-label">Is Active</label>
+    </div>
+    <button type="submit" class="btn btn-primary">Create</button>
+</form>

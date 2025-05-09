@@ -7,25 +7,24 @@ namespace DotNetWeek5App.Pages
     {
         public IActionResult OnGet()
         {
-            try
-            {
-                // Session temizlemek için
-                HttpContext.Session.Clear();
+            return LogoutAndRedirect();
+        }
 
-                // Tüm cookie'leri dögü ile silmek için
-                foreach (var cookieKey in Request.Cookies.Keys)
-                {
-                    Response.Cookies.Delete(cookieKey);
-                }
+        public IActionResult OnPost()
+        {
+            return LogoutAndRedirect();
+        }
 
-                // Giriş sayfasına yönlendirmek için
-                return RedirectToPage("/Login");
-            }
-            catch
+        private IActionResult LogoutAndRedirect()
+        {
+            HttpContext.Session.Clear();
+
+            foreach (var cookieKey in Request.Cookies.Keys)
             {
-                // Hata olursa Logout sayfasında hata mesajı göstermek için
-                return Content("Hata oluştu, Logout işlemi tamamlanamadı.");
+                Response.Cookies.Delete(cookieKey);
             }
+
+            return RedirectToPage("/Login");
         }
     }
 }

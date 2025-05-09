@@ -1,7 +1,19 @@
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
+using DotNetWeek5App.Models.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// GPT: Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddSession();
+
+// GPT: Add DbContext to the container using the correct connection string
+builder.Services.AddDbContext<SchoolDbContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+// GPT: Add session to the app
 builder.Services.AddSession();
 
 var app = builder.Build();
